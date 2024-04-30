@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/* IMPORTS BASE */
+import * as React from 'react'
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+
+/* IMPORTS COMPOSANTS */
+import Home from './src/views/home/home'
+import Details from './src/views/details/details'
+import AirQuality from './src/views/airQuality/airQuality'
+
+/* SETUP */
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} options={{title: 'Apply Maitaiau'}}/>
+        <Stack.Screen name="Details" component={Details} options={{title: 'Apply Maitaiau'}}/>
+        <Stack.Screen name="AirQuality" component={AirQuality} options={{title: 'Apply Maitaiau'}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
